@@ -1,0 +1,31 @@
+.not-found{
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.not-found__title{
+  color: #512689;
+  margin-top: 200px;
+  font-size: 50px;
+  line-height: 53.44px;
+}
+.not-found__text{
+  margin-top: 50px;
+  font-size: 20px;
+  line-height: 23.44px;
+}
+.not-found__button {
+  color: #F8F8F8;
+  background-color: #512689;
+  border: 1px solid #f8f8f8;
+  outline: none;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+.not-found__button:hover {
+  opacity: 0.6;
+}

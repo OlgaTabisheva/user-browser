@@ -1,0 +1,62 @@
+.partner__box {
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 49px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.partner__image {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.partner__description {
+  margin-top: 34px;
+  max-width: 630px;
+  width: 100%;
+  margin-right: 130.5px;
+  text-align: start;
+  font-size: 16px;
+  line-height: 21.79px;
+}
+
+.partner__text {
+  font-size: 16px;
+  line-height: 21.79px;
+  margin: 0;
+}
+.partner__text:nth-child(2) {
+ margin-top: 25px;
+}
+
+.partner__contacts {
+  max-width: 188px;
+}
+
+.partner__contact {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end
+}
+
+@media screen and (max-width: 1400px) {
+  .partner{
+    display: flex;
+    flex-direction: column;
+  }
+  .partner__box {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    padding: 32px 16px 16px 16px;
+    margin: 0 auto 0 auto;
+
+  }
+
+  .partner__description {
+    max-width: 343px;
+  }
+}
