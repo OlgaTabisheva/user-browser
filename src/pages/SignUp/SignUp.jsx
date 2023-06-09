@@ -2,9 +2,11 @@ import React from "react";
 import './SignUp.css'
 import but from './../../images/HideShow.svg'
 import {fetchSignUp} from "../../utils/newApi";
-export const SignUp = () => {
+import {useNavigate} from "react-router-dom";
+export const SignUp = ({setIsLoggedIn, isLoggedIn}) => {
   const [ type, setType ] = React.useState(true);
   const handleSetType = () => setType(!type);
+  const history = useNavigate()
   const [formValuesSignUp, setFormValuesSignUp] = React.useState({
     name: '',
     email: '',
@@ -12,8 +14,11 @@ export const SignUp = () => {
     avatar: 'https://cdn.icon-icons.com/icons2/1130/PNG/512/questionincircularbutton_80033.png'
   });
   function signUp(e) {
+    console.log('signUp')
     e.preventDefault();
-    fetchSignUp(formValuesSignUp).then((res)=> console.log(res))
+    fetchSignUp(formValuesSignUp).then(()=> {
+      history('/sign-ip')
+    }).catch((err)=>{ console.log(err)})
   }
 /*  const isSubmitDisabled = !nameValid || !emailValid || !passwordValid || passwordInput!==passwordRepeatInput;*/
   const handleInputChange = React.useCallback((e) => {
@@ -23,6 +28,12 @@ export const SignUp = () => {
     setFormValuesSignUp(prevState => ({...prevState, [id]: value}));
   }, [setFormValuesSignUp])
 
+  React.useEffect(()=>{
+    if (isLoggedIn) {
+      console.log(isLoggedIn)
+      history('/profile')
+    }
+  },[isLoggedIn])
   return (
     <div className='sign-up'>
       <form onSubmit={signUp} className='sign-up__form'>

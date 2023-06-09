@@ -14,12 +14,16 @@ export const fetchSignUp =  async ({name, email, password, avatar}) => {
     email: email,
     password: password,
     avatar: avatar
-  }).then((response) => {
-    console.log(response.status, response.data);
-  });
-  console.log(data)
+  })
   return data;
 }
-
+export const fetchSignIn =  async ({email, password}) => {
+  console.log("signup")
+  const data  = await axios.post(`https://api.escuelajs.co/api/v1/auth/login`,{
+    email: email,
+    password: password,
+  })
+  return data;
+}
 
 

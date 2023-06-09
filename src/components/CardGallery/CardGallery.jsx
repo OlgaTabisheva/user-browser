@@ -12,10 +12,9 @@ export const CardGallery = () => {
     <div className='card-gallery'>
       <div className='card-gallery__box'>
         {use.users?.map((obj) => (
-          <Link to='/partner'>
             <Card
               key={obj.id} {...obj}/>
-          </Link>
+
         ))}
       </div>
       <button className='card-gallery__button'>Показать еще
