@@ -1,22 +1,22 @@
 import { createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-  users: [],
+  signUp: [],
   res: 'none',
 };
 
 const usersSlice = createSlice({
-  name: 'users',
+  name: 'signUp',
   initialState,
   reducers: {
-    usersFetched(state, action) {
+    setSignUp(state, action) {
       state.users = action.payload;
       state.res = "success";
     },
-    setError(state) {
+    setErrorSignUp(state) {
       state.res = "failed";
     },
   }
 });
-export const {usersFetched, setError} = usersSlice.actions;
+export const {setSignUp, setErrorSignUp} = usersSlice.actions;
 export default usersSlice.reducer;
