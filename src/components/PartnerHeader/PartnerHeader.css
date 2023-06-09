@@ -1,5 +1,5 @@
 
-.partner-header{
+.partner-header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,11 +19,13 @@
   display: flex;
   flex-direction: column;
   padding-left: 32px;
+  z-index: 2;
 }
 
 .partner-header__image {
   width: 187px;
   height: 187px;
+  border-radius: 100px
 }
 
 .partner-header__title {
@@ -47,13 +49,16 @@
     flex-direction: column-reverse;
     padding-bottom: 64px;
   }
+
   .partner-header__title {
     font-size: 36px;
     line-height: 42.19px;
   }
-  .partner-header__box{
+
+  .partner-header__box {
     padding-left: 0;
   }
+
   .partner-header__text {
     margin-bottom: 16px;
   }

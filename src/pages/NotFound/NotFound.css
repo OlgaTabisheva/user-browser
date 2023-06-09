@@ -1,19 +1,22 @@
-.not-found{
+.not-found {
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
 }
-.not-found__title{
+
+.not-found__title {
   color: #512689;
   margin-top: 200px;
   font-size: 50px;
   line-height: 53.44px;
 }
-.not-found__text{
+
+.not-found__text {
   margin-top: 50px;
   font-size: 20px;
   line-height: 23.44px;
 }
+
 .not-found__button {
   color: #F8F8F8;
   background-color: #512689;

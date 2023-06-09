@@ -11,6 +11,7 @@ class Api {
       .catch((error) => console.log(error))
 
   }
+
   getUser(id) {
     return fetch(`https://63c98c0a904f040a9660965d.mockapi.io/users:${id}`, {})
       .then(res => console.log(res))

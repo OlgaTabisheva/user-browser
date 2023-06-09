@@ -5,23 +5,17 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import {Partner} from "./pages/Partner/Partner";
 import {SignUp} from "./pages/SignUp/SignUp";
 import {NotFound} from "./pages/NotFound/NotFound";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchUsers} from "./utils/newApi";
 import {setError, usersFetched} from "./store/slices/userSlice";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import {SignIn} from "./pages/SignIn/SignIn";
+import {tokenFetched} from "./store/slices/tokenSlice";
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [token, setToken] = React.useState('')
-  React.useEffect(() => {
-    const jwt = localStorage.getItem('JWT')
-    if (jwt) {
-      setToken(jwt);
-      setIsLoggedIn(true)
-    }
-  }, [])
+  const loggedIn = useSelector(store => store.token);
+
   React.useEffect(() => {
     fetchUsers().then(res => {
       dispatch(usersFetched(res));
@@ -30,34 +24,31 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-   console.log(isLoggedIn, token)
-  }, [isLoggedIn])
+    const jwt = localStorage.getItem('JWT');
+    console.log(jwt)
+    if (jwt) {
+      dispatch(tokenFetched({'access_token': jwt}))
+    }
+  }, [])
+
 
   return (
     <div className="App">
-      <Routes>
-        <Route path='/sign-in' element={<SignUp
-          setIsLoggedIn={setIsLoggedIn}
-          isLoggedIn={isLoggedIn}
-        />}/>
-        <Route path='/sign-in' element={<SignIn
-          setIsLoggedIn={setIsLoggedIn}
-          isLoggedIn={isLoggedIn}
 
-        />}/>
-        <Route exact path="/" element={
-          <ProtectedRoute isLoggedIn={isLoggedIn}>
-         <Profile/>
-          </ProtectedRoute>
-        }/>
-        <Route exact path="/partner" element={
-          <ProtectedRoute isLoggedIn={isLoggedIn}>
-          <Partner/>
+      <Routes>
+        <Route path='/' element={<SignIn/>}/>
+        <Route path='/sign-up' element={<SignUp/>}/>
+        <Route exact path="/profile" element={
+          <ProtectedRoute>
+            <Profile/>
+          </ProtectedRoute>}/>
+        <Route exact path="/partner/:id" element={
+          <ProtectedRoute>
+            <Partner/>
           </ProtectedRoute>
         }/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-
     </div>
   );
 }

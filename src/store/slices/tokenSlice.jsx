@@ -1,8 +1,8 @@
-import { createSlice} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-  token: [],
-  res: 'none',
+  token: '',
+  isSignIn: false,
 };
 
 const tokenSlice = createSlice({
@@ -10,14 +10,17 @@ const tokenSlice = createSlice({
   initialState,
   reducers: {
     tokenFetched(state, action) {
+      console.log(action.payload)
       state.token = action.payload;
       localStorage.setItem('JWT', state.token.access_token);
-      state.res = "success";
+      state.isSignIn = true
     },
-    setErrorToken(state) {
-      state.res = "failed";
+    logOut(state, action) {
+      state.token = '';
+      localStorage.removeItem("JWT");
+      state.isSignIn = false
     },
   }
 });
-export const {tokenFetched, setErrorToken} = tokenSlice.actions;
+export const {tokenFetched, logOut} = tokenSlice.actions;
 export default tokenSlice.reducer;

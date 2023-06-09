@@ -1,4 +1,4 @@
-.sign-up{
+.sign-up {
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -8,7 +8,8 @@
   background-color: #FFFFFF;
   margin-top: 100px;
 }
-.sign-up__form{
+
+.sign-up__form {
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -18,18 +19,21 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: relative;
 }
-.sign-up__title{
+
+.sign-up__title {
   text-align: left;
   font-size: 20px;
   line-height: 23.44px;
 }
-.sign-up__name-input{
+
+.sign-up__name-input {
   font-size: 16px;
   line-height: 21.79px;
   text-align: left;
   margin: 16px 0 8px 0;
 }
-.sign-up__input{
+
+.sign-up__input {
   border: none;
   color: #808185;
   border-radius: 8px;
@@ -41,41 +45,49 @@
   background-color: #f8f8f8;
   margin: 0;
 }
+
 input:focus {
   border: none;
 }
+
 input:required {
   border: none;
 }
-input:not:invalid{border-color:red}
-.sign-up__input-button{
+
+input:not:invalid {
+  border-color: red
+}
+
+.sign-up__input-button {
   position: absolute;
   border: none;
   outline: none;
-  background-color:#F8F8F8 ;
+  background-color: #F8F8F8;
   cursor: pointer;
   width: 24px;
   height: 24px;
   top: 333px;
   right: 25px;
 }
+
 .sign-up__input-button:hover,
 .sign-up__input-button-repeat:hover {
   opacity: 0.5;
 }
 
-.sign-up__input-button-repeat{
+.sign-up__input-button-repeat {
   position: absolute;
   border: none;
   outline: none;
-  background-color:  #F8F8F8;
+  background-color: #F8F8F8;
   cursor: pointer;
   width: 24px;
   height: 24px;
   top: 443px;
   right: 25px;
 }
-.sign-up__error-message{
+
+.sign-up__error-message {
   padding-top: 4px;
   opacity: 0;
   font-size: 10px;
@@ -85,6 +97,7 @@ input:not:invalid{border-color:red}
   color: #FF6161;
   text-align: left;
 }
+
 .sign-up__button {
   color: #F8F8F8;
   background-color: #512689;
@@ -97,29 +110,35 @@ input:not:invalid{border-color:red}
   border-radius: 8px;
   margin-top: 10px;
 }
+
 .sign-up__button:hover {
   opacity: 0.6;
 }
-.sign-up__button:disabled{
+
+.sign-up__button:disabled {
   opacity: 0.1;
 }
-.sign-up__error-message_visible{
+
+.sign-up__error-message_visible {
   opacity: 1;
 }
-.sign-up__input-box{
+
+.sign-up__input-box {
   margin: 0;
   padding: 0;
 }
+
 @media screen and (max-width: 1400px) {
 
-  .sign-up__form{
+  .sign-up__form {
     max-width: 343px;
     width: 100%;
     padding: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
   }
-  .sign-up__input{
+
+  .sign-up__input {
     max-width: 327px;
   }
 }
