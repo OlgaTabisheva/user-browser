@@ -1,15 +1,8 @@
-import {Header} from "../Header/Header";
-import user from "../../images/ArturKorolev.svg";
 import './PartnerHeader.css'
-import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
 
-export const PartnerHeader = () => {
+export const PartnerHeader = ({partner}) => {
 
-  const partners = useSelector(store => store.users.users);
-  const {id} = useParams();
 
-  const partner = partners.find(elem => elem.id === id);
   return (
     <section>
       <div className='partner-header'>

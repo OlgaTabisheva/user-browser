@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export const fetchUsers = async () => {
-  const {data} = await axios.get(`https://63c98c0a904f040a9660965d.mockapi.io/users`, {});
+ const {data} = await axios.get(`https://user-browser-api.746746746.xyz/api/users`, { withCredentials: false,});
+ // const {data} = await axios.get(`https://63c98c0a904f040a9660965d.mockapi.io/users`, {});
   return data;
 }
 export const fetchSignUp = async ({name, email, password, avatar}) => {

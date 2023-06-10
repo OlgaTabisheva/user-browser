@@ -11,30 +11,43 @@ import {setError, usersFetched} from "./store/slices/userSlice";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import {SignIn} from "./pages/SignIn/SignIn";
 import {tokenFetched} from "./store/slices/tokenSlice";
+import {Modal} from "./components/Modal/Modal";
 
 function App() {
   const history = useNavigate();
   const dispatch = useDispatch();
-  const loggedIn = useSelector(store => store.token);
+  const loggedIn = useSelector(store => store.token.isSignIn);
+  const [show, setShow] = React.useState(false);
+
+  function closeModal(){
+    setShow(false)
+  }
 
   React.useEffect(() => {
-    fetchUsers().then(res => {
-      dispatch(usersFetched(res));
-    })
-      .catch(dispatch(setError()))
-  }, []);
+    if (loggedIn) {
+      fetchUsers().then(res => {
+        dispatch(usersFetched(res));
+      })
+        .catch(dispatch(setError()))
+    }
+  }, [fetchUsers, loggedIn]);
 
   React.useEffect(() => {
     if (loggedIn) {
       history('/profile')
     }
   }, [loggedIn])
+  React.useEffect(() => {
+    const jwt = localStorage.getItem('JWT')
+    if (jwt) {
+      dispatch(tokenFetched(jwt));
+    }
+  }, [])
 
   return (
     <div className="App">
-
       <Routes>
-        <Route path='/' element={<SignIn/>}/>
+        <Route path='/' element={<SignIn setShow={setShow}/>}/>
         <Route path='/sign-up' element={<SignUp/>}/>
         <Route exact path="/profile" element={
           <ProtectedRoute>
@@ -46,7 +59,14 @@ function App() {
           </ProtectedRoute>
         }/>
         <Route path='*' element={<NotFound/>}/>
+
       </Routes>
+      <Modal
+        show={show}
+        setShow={setShow}
+        closeModal={closeModal}
+        modalText={'Неправильный логин или пароль.'}
+        modalTitle={'Внимание, произошла ошибка.'}/>
     </div>
   );
 }

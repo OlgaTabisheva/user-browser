@@ -1,5 +1,4 @@
 import './Card.css'
-import {useSelector} from "react-redux";
 
 export const Card = ({name, avatar}) => {
   return (

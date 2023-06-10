@@ -1,5 +1,4 @@
 import './ProfileHeader.css'
-import {Header} from "../Header/Header";
 
 export const ProfileHeader = () => {
   return (

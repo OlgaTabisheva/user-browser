@@ -7,7 +7,7 @@ import {tokenFetched} from "../../store/slices/tokenSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-export const SignIn = () => {
+export const SignIn = ({setShow}) => {
   const loggedIn = useSelector(store => store.token.isSignIn);
   const [type, setType] = React.useState(true);
   const dispatch = useDispatch();
@@ -16,24 +16,22 @@ export const SignIn = () => {
   const [formValuesSignIn, setFormValuesSignIn] = React.useState({
     email: '',
     password: '',
-    passwordRepeat: '',
   });
   const [formValiditySignIn, setFormValiditySignIn] = React.useState({
     emailValid: false,
     passwordValid: false,
-    passwordValidRepeat: false
   });
-  const {emailValid, passwordValid, passwordValidRepeat} = formValiditySignIn;
-  const isSubmitDisabled =  !emailValid || !passwordValid || !passwordValidRepeat;
+  const {emailValid, passwordValid } = formValiditySignIn;
+  const isSubmitDisabled =  !emailValid || !passwordValid ;
 
   function signIn(e) {
     e.preventDefault();
     fetchSignIn(formValuesSignIn).then(res => {
       dispatch(tokenFetched(res.data));
-      history('/profile')
-    }).catch()
+    }).catch((res)=>{
+      setShow(true)
+    })
   }
-
   React.useEffect(() => {
     if (loggedIn) {
       history('/profile')
@@ -53,11 +51,9 @@ export const SignIn = () => {
     const isEmailInputValid = isEmailInputFilled && isEmail
     const isPasswordInputFilled = formValuesSignIn.password.length >= 5
     const isPasswordInputValid = isPasswordInputFilled
-    const isPasswordRepeat = formValuesSignIn.password === formValuesSignIn.passwordRepeat
     setFormValiditySignIn(prevValidity => ({
       emailValid: isEmailInputValid,
-      passwordValid: isPasswordInputValid,
-      passwordValidRepeat: isPasswordRepeat
+      passwordValid: isPasswordInputValid
     }))
   }, [formValuesSignIn, setFormValiditySignIn])
 
@@ -90,21 +86,6 @@ export const SignIn = () => {
           </button>
         </div>
         <span className={ !passwordValid ? 'sign-up__error-message sign-up__error-message_visible': 'sign-up__error-message' } id="error-password">Ошибка</span>
-        <h3 className='sign-up__name-input'>Подтвердите пароль</h3>
-        <div className="sign-up__input-box">
-          <input
-            value={formValuesSignIn.passwordRepeat}
-            onChange={handleInputChange}
-            placeholder='******'
-            type={type ? "password" : "text"}
-            id="passwordRepeat"
-            className={ !passwordValidRepeat ? 'sign-up__input sign-up__input-invalid' : 'sign-up__input' }
-          ></input>
-          <button className='sign-up__input-button-repeat sign-in__input-button-repeat' onClick={handleSetType}>
-            <img className='sign-up__input-button-img-repeat ' src={but}/>
-          </button>
-        </div>
-        <span className= {!passwordValidRepeat  ? 'sign-up__error-message sign-up__error-message_visible': 'sign-up__error-message' } id="error-repeat-password">Пароли не совпадают</span>
         <button disabled={isSubmitDisabled} type='submit' className="sign-up__button">Вход</button>
         <Link to='/sign-up'>
           <button type='button' className="sign-up__button">Вы еще не зарегистрировались?</button>

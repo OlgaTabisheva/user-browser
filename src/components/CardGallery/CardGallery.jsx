@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './CardGallery.css'
 import {Card} from "../Card/Card";
 import more from '../../images/ShowMore.svg'

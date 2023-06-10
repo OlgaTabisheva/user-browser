@@ -6,21 +6,17 @@ import {Header} from "../../components/Header/Header";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 
-
 export const Partner = () => {
   const partners = useSelector(store => store.users.users);
   const {id} = useParams();
-
-  const partner = partners.find(elem => elem.id === id);
-
-  console.log()
+  const partner = partners.find(elem => elem.id === Number(id));
 
   return (
     <section className='partner'>
       <Header
         isBtn={true}
       />
-      <PartnerHeader/>
+      <PartnerHeader partner={partner}/>
       <div className='partner__box'>
         <div className='partner__description'>
           {partner.description}
