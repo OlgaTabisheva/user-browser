@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 48px;
+  margin-bottom: 69px;
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -40,6 +41,17 @@
 @media screen and (max-width: 1400px) {
   .card-gallery {
     margin-top: 32px;
+  }
+
+  .card-gallery__box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .card-gallery {
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 
   .card-gallery__box {

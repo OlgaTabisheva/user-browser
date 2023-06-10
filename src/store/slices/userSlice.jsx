@@ -1,8 +1,12 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 
+const addUsersCount = 4;
+const InitialUsersCount = 8;
 const initialState = {
   users: [],
+  viewUsers: [],
   res: 'none',
+  viewCounter: 0
 };
 
 const usersSlice = createSlice({
@@ -11,6 +15,15 @@ const usersSlice = createSlice({
   reducers: {
     usersFetched(state, action) {
       state.users = action.payload;
+      state.viewUsers = action.payload.slice(0, InitialUsersCount);
+      state.viewCounter = InitialUsersCount;
+      state.res = "success";
+    },
+    addMoreUsers(state, action) {
+      if (state.viewCounter+addUsersCount<= state.users.length) {
+        state.viewUsers = state.viewUsers.concat(state.users.slice(state.viewCounter, state.viewCounter + addUsersCount));
+        state.viewCounter += addUsersCount
+      }
       state.res = "success";
     },
     setError(state) {
@@ -18,5 +31,5 @@ const usersSlice = createSlice({
     },
   }
 });
-export const {usersFetched, setError} = usersSlice.actions;
+export const {usersFetched, setError, addMoreUsers} = usersSlice.actions;
 export default usersSlice.reducer;

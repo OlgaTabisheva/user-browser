@@ -13,6 +13,7 @@ import {SignIn} from "./pages/SignIn/SignIn";
 import {tokenFetched} from "./store/slices/tokenSlice";
 
 function App() {
+  const history = useNavigate();
   const dispatch = useDispatch();
   const loggedIn = useSelector(store => store.token);
 
@@ -24,13 +25,10 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    const jwt = localStorage.getItem('JWT');
-    console.log(jwt)
-    if (jwt) {
-      dispatch(tokenFetched({'access_token': jwt}))
+    if (loggedIn) {
+      history('/profile')
     }
-  }, [])
-
+  }, [loggedIn])
 
   return (
     <div className="App">

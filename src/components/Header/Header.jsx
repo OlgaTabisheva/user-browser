@@ -12,12 +12,23 @@ export const Header = ({isBtn}) => {
 
   return (
     <div className={isBtn ? 'header' : "header__res"}>
+
       {isBtn &&
+        <div>
+          <Link to='/profile'>
+            <button className='header__button-return_mobile'/>
+          </Link>
         <Link to='/profile'>
           <button className='header__button'>Назад</button>
         </Link>
+        </div>
       }
-      <button onClick={() => handleLoggedOff()} className='header__button'>Выход</button>
+
+      <div>
+        <button onClick={() => handleLoggedOff()} className='header__button'>Выход</button>
+        <button onClick={() => handleLoggedOff()} className='header__button-exit_mobile'></button>
+      </div>
+
     </div>
   );
 };

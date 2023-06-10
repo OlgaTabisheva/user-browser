@@ -44,18 +44,10 @@
   width: 100%;
   background-color: #f8f8f8;
   margin: 0;
+  outline:none;
 }
-
-input:focus {
-  border: none;
-}
-
-input:required {
-  border: none;
-}
-
-input:not:invalid {
-  border-color: red
+.sign-up__input-invalid{
+  outline: 1px solid #FF6161;
 }
 
 .sign-up__input-button {
@@ -128,7 +120,7 @@ input:not:invalid {
   padding: 0;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 850px) {
 
   .sign-up__form {
     max-width: 343px;

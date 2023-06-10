@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 32px 80px 0 80px;
+  padding: 32px 62px 0 62px;
   background-color: #512689;
   align-items: center;
   color: #f8f8f8;
@@ -19,7 +19,7 @@
   font-weight: 400;
   display: flex;
   justify-content: space-between;
-  padding: 32px 80px 0 80px;
+  padding: 32px 62px 0 62px;
   background-color: #512689;
   align-items: center;
   color: #f8f8f8;
@@ -48,23 +48,21 @@
   opacity: 0.1;
 }
 
-.header__button-res
 .header__button-exit_mobile,
 .header__button-return_mobile {
   visibility: hidden;
+  width: 0;
+  height: 0;
 }
 
-/*@media screen and (max-width: 1400px) {
+@media screen and (max-width: 850px) {
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 23px 0 23px;
+    padding: 23px 27px 0 27px;
   }
 
-  .button__full-screen {
-    visibility: visible;
-  }
 
   .header__button-exit_mobile {
     visibility: visible;
@@ -73,8 +71,12 @@
     background: url(../../images/ExitMobile.svg) no-repeat center;
     border: hidden;
     cursor: pointer;
-  }
 
+  }
+  .header__button-return_mobile:hover,
+  .header__button-exit_mobile:hover {
+  opacity: 0.6;
+}
   .header__button-return_mobile {
     visibility: visible;
     width: 18px;
@@ -82,11 +84,14 @@
     background: url(../../images/ReturnMobile.svg) no-repeat center;
     border: hidden;
     cursor: pointer;
+
   }
 
   .header__button {
     visibility: hidden;
+    width: 0;
+    height: 0;
   }
-}*/
+}
 
 

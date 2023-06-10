@@ -27,11 +27,15 @@
   margin: 0 auto 64px auto;
 }
 
+@media screen and (max-width: 1300px) {
 
-@media screen and (max-width: 1400px) {
-  .profile-header {
-    padding-top: 23px;
+  .profile-header__text {
+    max-width: 700px;
   }
+
+}
+
+@media screen and (max-width: 850px) {
 
   .profile-header__title {
     font-size: 36px;
