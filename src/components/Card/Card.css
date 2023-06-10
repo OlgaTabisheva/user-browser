@@ -29,10 +29,12 @@
   margin: 0 0 24px 0;
 
 }
+
 a, a:hover, a:active, a:focus {
   text-decoration: none;
   color: #151317;
 }
+
 .card__like {
   width: 14px;
   height: 12px;

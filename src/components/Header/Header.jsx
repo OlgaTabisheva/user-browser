@@ -18,9 +18,9 @@ export const Header = ({isBtn}) => {
           <Link to='/profile'>
             <button className='header__button-return_mobile'/>
           </Link>
-        <Link to='/profile'>
-          <button className='header__button'>Назад</button>
-        </Link>
+          <Link to='/profile'>
+            <button className='header__button'>Назад</button>
+          </Link>
         </div>
       }
 

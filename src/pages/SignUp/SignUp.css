@@ -44,9 +44,10 @@
   width: 100%;
   background-color: #f8f8f8;
   margin: 0;
-  outline:none;
+  outline: none;
 }
-.sign-up__input-invalid{
+
+.sign-up__input-invalid {
   outline: 1px solid #FF6161;
 }
 
@@ -121,9 +122,10 @@
 }
 
 @media screen and (max-width: 850px) {
-.sign-up{
-  margin-top: 64px;
-}
+  .sign-up {
+    margin-top: 64px;
+  }
+
   .sign-up__form {
     max-width: 343px;
     width: 100%;

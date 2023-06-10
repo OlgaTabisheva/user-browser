@@ -20,7 +20,7 @@ const usersSlice = createSlice({
       state.res = "success";
     },
     addMoreUsers(state, action) {
-      if (state.viewCounter+addUsersCount<= state.users.length) {
+      if (state.viewCounter <= state.users.length) {
         state.viewUsers = state.viewUsers.concat(state.users.slice(state.viewCounter, state.viewCounter + addUsersCount));
         state.viewCounter += addUsersCount
       }

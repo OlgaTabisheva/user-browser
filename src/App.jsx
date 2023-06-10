@@ -6,7 +6,7 @@ import {Partner} from "./pages/Partner/Partner";
 import {SignUp} from "./pages/SignUp/SignUp";
 import {NotFound} from "./pages/NotFound/NotFound";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUsers} from "./utils/newApi";
+import {fetchUsers} from "./utils/Api";
 import {setError, usersFetched} from "./store/slices/userSlice";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import {SignIn} from "./pages/SignIn/SignIn";
@@ -18,9 +18,11 @@ function App() {
   const dispatch = useDispatch();
   const loggedIn = useSelector(store => store.token.isSignIn);
   const [show, setShow] = React.useState(false);
+  const [showSignUp, setShowSignUp] = React.useState(false);
 
-  function closeModal(){
+  function closeModal() {
     setShow(false)
+    setShowSignUp(false)
   }
 
   React.useEffect(() => {
@@ -48,7 +50,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<SignIn setShow={setShow}/>}/>
-        <Route path='/sign-up' element={<SignUp/>}/>
+        <Route path='/sign-up' element={<SignUp setShow={setShowSignUp}/>}/>
         <Route exact path="/profile" element={
           <ProtectedRoute>
             <Profile/>
@@ -59,15 +61,21 @@ function App() {
           </ProtectedRoute>
         }/>
         <Route path='*' element={<NotFound/>}/>
-
       </Routes>
       <Modal
         show={show}
         setShow={setShow}
         closeModal={closeModal}
         modalText={'Неправильный логин или пароль.'}
-        modalTitle={'Внимание, произошла ошибка.'}/>
+        modalTitle={'Внимание, произошла ошибка!'}/>
+      <Modal
+      show={showSignUp}
+      setShow={setShowSignUp}
+      closeModal={closeModal}
+      modalText={'Такой пользователь существует.'}
+      modalTitle={'Ошибка регистрации!'}/>
     </div>
+
   );
 }
 

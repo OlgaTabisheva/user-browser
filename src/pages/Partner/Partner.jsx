@@ -19,16 +19,16 @@ export const Partner = () => {
       <PartnerHeader partner={partner}/>
       <div className='partner__box'>
         <div className='partner__description'>
-          {partner.description}
+          {partner?.description}
         </div>
         <div className='partner__contacts'>
           <div className='partner__contact'>
             <img className='partner__image' src={phone}/>
-            <p className='partner__text'>{partner.phone}</p>
+            <p className='partner__text'>{partner?.phone}</p>
           </div>
           <div className='partner__contact'>
             <img className='partner__image' src={mail}/>
-            <p className='partner__text'>{partner.email}</p>
+            <p className='partner__text'>{partner?.email}</p>
           </div>
 
         </div>

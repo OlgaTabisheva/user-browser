@@ -73,10 +73,12 @@
     cursor: pointer;
 
   }
+
   .header__button-return_mobile:hover,
   .header__button-exit_mobile:hover {
-  opacity: 0.6;
-}
+    opacity: 0.6;
+  }
+
   .header__button-return_mobile {
     visibility: visible;
     width: 18px;

@@ -9,10 +9,12 @@ import {addMoreUsers} from "../../store/slices/userSlice";
 export const CardGallery = () => {
   const dispatch = useDispatch();
   const use = useSelector(store => store.users);
-function handleShowMore() {
-  dispatch(addMoreUsers())
-}
-const  buttonHidden = use.viewCounter >= use.users.length;
+
+  function handleShowMore() {
+    dispatch(addMoreUsers())
+  }
+
+  const buttonHidden = use.viewCounter >= use.users.length;
   return (
     <div className='card-gallery'>
       <div className='card-gallery__box'>
@@ -23,7 +25,7 @@ const  buttonHidden = use.viewCounter >= use.users.length;
           </Link>
         ))}
       </div>
-      { !buttonHidden &&  <button onClick={()=>handleShowMore()} className='card-gallery__button'>Показать еще
+      {!buttonHidden && <button onClick={() => handleShowMore()} className='card-gallery__button'>Показать еще
         <img className='card-gallery__button-image' src={more}/>
       </button>}
 
