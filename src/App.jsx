@@ -42,8 +42,6 @@ function App() {
   }, [loggedIn])
   React.useEffect(() => {
     const jwt = localStorage.getItem('JWT')
-    console.log(jwt)
-    console.log(tokenFetched(jwt))
     if (jwt) {
       dispatch(tokenFetched({access_token: jwt}));
     }

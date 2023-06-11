@@ -14,7 +14,6 @@ const likeSlice = createSlice({
         state.likes = state.likes.filter((card) => (card !== action.payload))
       }
       localStorage.setItem('likes', JSON.stringify(state.likes))
-      console.log(state.likes)
     },
     loadLikes(state, action){
       const loadLikes = localStorage.getItem('likes')
