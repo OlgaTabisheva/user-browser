@@ -12,6 +12,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import {SignIn} from "./pages/SignIn/SignIn";
 import {tokenFetched} from "./store/slices/tokenSlice";
 import {Modal} from "./components/Modal/Modal";
+import {loadLikes} from "./store/slices/likeSlice";
 
 function App() {
   const history = useNavigate();
@@ -41,9 +42,12 @@ function App() {
   }, [loggedIn])
   React.useEffect(() => {
     const jwt = localStorage.getItem('JWT')
+    console.log(jwt)
+    console.log(tokenFetched(jwt))
     if (jwt) {
-      dispatch(tokenFetched(jwt));
+      dispatch(tokenFetched({access_token: jwt}));
     }
+    dispatch(loadLikes())
   }, [])
 
   return (

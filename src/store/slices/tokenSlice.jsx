@@ -10,13 +10,15 @@ const tokenSlice = createSlice({
   initialState,
   reducers: {
     tokenFetched(state, action) {
+      console.log(action.payload)
       state.token = action.payload;
       localStorage.setItem('JWT', state.token.access_token);
+      console.log(state.token.access_token)
       state.isSignIn = true
     },
     logOut(state, action) {
       state.token = '';
-      localStorage.removeItem("JWT");
+      localStorage.removeItem('JWT');
       state.isSignIn = false
     },
   }
