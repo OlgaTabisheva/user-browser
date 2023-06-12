@@ -7,6 +7,7 @@ export const Card = ({name, avatar, id}) => {
 
   const likes = useSelector(store => store.likes.likes);
   const dispatch = useDispatch();
+
   function handleClickLike(e) {
     dispatch(setLike(id))
     e.preventDefault()

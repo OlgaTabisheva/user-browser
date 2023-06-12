@@ -68,13 +68,15 @@
   font-size: 26px;
   line-height: 28px;
 }
-.modal__text{
+
+.modal__text {
   font-size: 20px;
   line-height: 23.44px;
   max-width: 864px;
   text-align: center;
   margin: 0 auto 16px auto;
 }
+
 @media screen and (max-width: 850px) {
   .modal__content {
     max-width: 200px;

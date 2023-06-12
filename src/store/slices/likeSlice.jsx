@@ -15,7 +15,7 @@ const likeSlice = createSlice({
       }
       localStorage.setItem('likes', JSON.stringify(state.likes))
     },
-    loadLikes(state, action){
+    loadLikes(state, action) {
       const loadLikes = localStorage.getItem('likes')
       if (loadLikes) {
         state.likes = JSON.parse(loadLikes);
@@ -23,5 +23,5 @@ const likeSlice = createSlice({
     },
   }
 });
-export const {setLike, loadLikes } = likeSlice.actions;
+export const {setLike, loadLikes} = likeSlice.actions;
 export default likeSlice.reducer;

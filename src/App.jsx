@@ -71,11 +71,11 @@ function App() {
         modalText={'Неправильный логин или пароль.'}
         modalTitle={'Внимание, произошла ошибка!'}/>
       <Modal
-      show={showSignUp}
-      setShow={setShowSignUp}
-      closeModal={closeModal}
-      modalText={'Такой пользователь существует.'}
-      modalTitle={'Ошибка регистрации!'}/>
+        show={showSignUp}
+        setShow={setShowSignUp}
+        closeModal={closeModal}
+        modalText={'Такой пользователь существует.'}
+        modalTitle={'Ошибка регистрации!'}/>
     </div>
 
   );

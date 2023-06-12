@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const baseUrl= 'https://user-browser-api.746746746.xyz'
+const baseUrl = 'https://user-browser-api.746746746.xyz'
 export const fetchUsers = async () => {
   const {data} = await axios.get(`${baseUrl}/api/users`, {withCredentials: false,});
   return data;
